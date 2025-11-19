@@ -1,47 +1,25 @@
-// // import React, { useState } from "react";
-
-// export default function App() {
-//   return (
-//     <div className="dark">
-//       <div className="bg-[#111111] text-[#E0E0E0] font-display min-h-screen">
-//         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-//           <div className="layout-container flex h-full grow flex-col">
-//             <div className="flex flex-1 justify-center py-5">
-//               <div className="layout-content-container flex w-full flex-col max-w-5xl px-4">
-//                 <Header />
-//                 <main className="flex-grow">
-//                   <HeroSection />
-//                   <LiveGoldRate />
-//                   <WhyChooseUs />
-//                   <EasySteps />
-//                   <CTABanner />
-//                 </main>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Header from "./component/Header";
-import HeroSection from "./pages/HeroSection";
-import LiveGoldRate from "./pages/LiveGoldRate";
-import EasySteps from "./pages/EasySteps";
-import CTABanner from "./pages/CTABanner";
-import WhyChooseUs from "./pages/WhyChooseUs";
+import ContactUs from "./pages/ContactUs";
+import Footer from "./component/Footer";
+import Home from "./pages/Home";
+import SellGold from "./pages/SellGold";
+import AboutPage from "./pages/AboutUs";
 
 const App = () => {
   return (
-    <div>
+    <BrowserRouter>
       <Header />
-      <HeroSection />
-      <LiveGoldRate />
-      <EasySteps />
-      <CTABanner />
-      <WhyChooseUs />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/sellGold" element={<SellGold />} />
+        <Route path="/aboutus" element={<AboutPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 };
 

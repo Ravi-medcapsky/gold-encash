@@ -1,6 +1,11 @@
+import { Link, useNavigate } from "react-router-dom";
+
 function Header() {
+  const navigate = useNavigate();
+
   return (
-    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#3a3727] px-4 sm:px-10 py-4">
+    <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#3a3727] px-4 sm:px-10 py-4 bg-gray-900">
+      {/* Logo + Title */}
       <div className="flex items-center gap-4 text-white">
         <div className="size-6 text-yellow-400">
           <svg
@@ -17,30 +22,38 @@ function Header() {
               fillRule="evenodd"></path>
           </svg>
         </div>
-        <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">
+
+        <h2 className="text-white text-lg font-bold tracking-tight">
           Gold-Encash
         </h2>
       </div>
+
+      {/* Desktop Navigation */}
       <div className="hidden sm:flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
-          <a
-            className="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition"
-            href="#how">
-            How It Works
-          </a>
-          <a
-            className="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition"
-            href="#about">
+          <Link
+            to="/"
+            className="text-white text-sm font-medium hover:text-yellow-400 transition">
+            Home
+          </Link>
+
+          <Link
+            to="/aboutus"
+            className="text-white text-sm font-medium hover:text-yellow-400 transition">
             About Us
-          </a>
-          <a
-            className="text-white text-sm font-medium leading-normal hover:text-yellow-400 transition"
-            href="#contact">
+          </Link>
+
+          <Link
+            to="/contactus"
+            className="text-white text-sm font-medium hover:text-yellow-400 transition">
             Contact
-          </a>
+          </Link>
         </div>
-        <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-yellow-400 text-gray-900 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-yellow-300 transition">
-          <span className="truncate">Sell Now</span>
+
+        <button
+          className="flex h-10 px-4 items-center justify-center rounded-lg bg-yellow-400 text-gray-900 text-sm font-bold hover:bg-yellow-300 transition"
+          onClick={() => navigate("/sellGold")}>
+          Sell Now
         </button>
       </div>
     </header>

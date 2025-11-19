@@ -4,10 +4,10 @@ function LiveGoldRate() {
   const [weight, setWeight] = useState("");
   const [purity, setPurity] = useState("24");
 
-  const rates = { 24: 7250, 22: 6645, 18: 5438 };
+  const rates = { 24: 12688, 22: 11675, 18: 9445 };
   const estimatedValue = weight
     ? (parseInt(weight) * rates[purity]).toLocaleString()
-    : "72,500";
+    : "12,688";
 
   return (
     <section className="py-16 px-14">
