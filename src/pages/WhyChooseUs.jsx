@@ -23,25 +23,27 @@ function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 px-14">
+    <section className="py-16 px-14 bg-white">
       <div className="text-center mb-12">
-        <h2 className="text-white text-3xl font-bold tracking-tight">
+        <h2 className="text-[#1e3a5f] text-3xl font-bold tracking-tight">
           Why Choose Gold-Encash
         </h2>
-        <p className="text-[#E0E0E0] mt-2 max-w-2xl mx-auto">
+        <p className="text-[#1e3a5f] opacity-75 mt-2 max-w-2xl mx-auto">
           Experience a seamless, secure, and rewarding way to sell your gold.
         </p>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map((feature, idx) => (
           <div
             key={idx}
-            className="bg-[#23200f] border border-[#3a3727] p-8 rounded-xl text-center flex flex-col items-center hover:border-yellow-400/50 transition">
-            <div className="bg-yellow-400/20 p-3 rounded-full mb-4 text-2xl">
+            className="bg-[#1e3a5f] border border-[#D4AF37] p-8 rounded-xl text-center flex flex-col items-center shadow-md hover:shadow-xl hover:-translate-y-1 transition"
+          >
+            <div className="bg-[#D4AF37]/15 p-4 rounded-full mb-4 text-3xl border border-[#D4AF37]">
               {feature.icon}
             </div>
             <h3 className="text-white text-lg font-bold">{feature.title}</h3>
-            <p className="text-[#E0E0E0] text-sm mt-2">{feature.desc}</p>
+            <p className="text-white/80 text-sm mt-2">{feature.desc}</p>
           </div>
         ))}
       </div>

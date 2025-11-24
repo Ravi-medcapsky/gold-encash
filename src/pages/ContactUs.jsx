@@ -51,7 +51,8 @@ export default function GoldEncash() {
                 </h3>
               </div>
               <p className="text-white-700">
-                Gold-Encash Office, New Delhi, India
+                644, DLF Tower, 15 Shivaji Marg, Najafgarh Road, Moti Nagar, New
+                Delhi - 110015
               </p>
             </div>
 
@@ -65,9 +66,9 @@ export default function GoldEncash() {
               </div>
               <p className="text-white-700">
                 <a
-                  href="mailto:support@gold-encash.in"
+                  href="mailto:sanjay.y@kissandhan.com"
                   className="text-yellow-600 font-medium hover:text-yellow-700">
-                  support@gold-encash.in
+                  sanjay.y@kissandhan.com
                 </a>
               </p>
             </div>

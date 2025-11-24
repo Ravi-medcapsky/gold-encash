@@ -1,43 +1,130 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
+    <footer
+      className="pt-14 pb-8"
+      style={{ backgroundColor: "#1e3a5f", color: "#ffffff" }}>
+      <div className="max-w-7xl mx-auto px-6">
         {/* Top Section */}
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-          {/* Left Info */}
+        <div className="grid md:grid-cols-3 gap-10 mb-12">
+          {/* Brand */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Contact Information</h3>
-            <p className="text-sm text-gray-300">
-              Office: Gold-Encash Office, New Delhi, India
+            <h2 className="text-2xl font-bold flex items-center gap-2">
+              <div className="size-7 text-[#D4AF37]">
+                <svg
+                  fill="currentColor"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    clipRule="evenodd"
+                    d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z"
+                    fillRule="evenodd"
+                  />
+                  <path
+                    clipRule="evenodd"
+                    d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </div>
+              Gold-Encash
+            </h2>
+            <p className="mt-3 text-sm text-gray-200 leading-relaxed">
+              Secure. Transparent. Instant Gold Selling Platform.
             </p>
-            <p className="text-sm text-gray-300">
+
+            {/* Support */}
+            <div>
+              <h3
+                className="text-lg font-semibold mb-3"
+                style={{ color: "#D4AF37" }}>
+                Support
+              </h3>
+              <div className="flex flex-col">
+                <a href="tel:+9111711101100" className="text-sm">
+                  Phone: +91-11 711101100
+                </a>
+                <a href="tel:+918766318173" className="text-sm">
+                  Mobile: +91-8766318173
+                </a>
+                <a href="tel:+9111711101101" className="text-sm">
+                  Fax: +91-11 711101101
+                </a>
+              </div>
+              <p className="text-sm">Mon – Sat: 10 AM – 7 PM</p>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div className="max-w-50">
+            <h3
+              className="text-lg font-semibold mb-3"
+              style={{ color: "#D4AF37" }}>
+              Contact Information
+            </h3>
+            <p className="text-sm">
+              Office: 644, DLF Tower, 15 Shivaji Marg, Najafgarh Road, Moti
+              Nagar, New Delhi - 110015
+            </p>
+            <p className="text-sm">
               Email:{" "}
-              <a href="mailto:support@gold-encash.in" className="text-blue-400 hover:underline">
-                support@gold-encash.in
+              <a
+                href="mailto:sanjay.y@kissandhan.com"
+                style={{ color: "#ffffff" }}
+                className="hover:opacity-70 transition">
+                sanjay.y@kissandhan.com
               </a>
             </p>
           </div>
 
-          {/* Right Info */}
+          {/* Quick Links  */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Support</h3>
-            <p className="text-sm text-gray-300">Phone: +91-XXXXXXXXXX</p>
-            <p className="text-sm text-gray-300">
-              Working Hours: Mon - Sat: 10 AM – 7 PM
-            </p>
+            <h3
+              className="text-lg font-semibold mb-3"
+              style={{ color: "#D4AF37" }}>
+              Quick Links
+            </h3>
+
+            <div className="flex flex-col gap-2">
+              {["/", "/aboutus", "/contactus"].map((path, i) => (
+                <Link
+                  key={i}
+                  to={path}
+                  className="text-white text-sm hover:text-[#D4AF37] transition">
+                  {["Home", "About Us", "Contact"][i]}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-6 text-center">
-          <p className="text-sm text-gray-400">
-            © 2024 www.gold-encash.in. All Rights Reserved.
-          </p>
+        {/* Social Icons */}
+        <div className="flex justify-center gap-6 mb-8">
+          {[FaFacebook, FaInstagram, FaTwitter, FaWhatsapp].map((Icon, i) => (
+            <a
+              key={i}
+              href="#"
+              className="text-white transition text-xl hover:scale-110"
+              style={{ color: "#ffffff" }}
+              onMouseOver={(e) => (e.currentTarget.style.color = "#D4AF37")}
+              onMouseOut={(e) => (e.currentTarget.style.color = "#ffffff")}>
+              <Icon />
+            </a>
+          ))}
         </div>
 
+        {/* Bottom */}
+        <div
+          className="pt-5 text-center"
+          style={{ borderTop: "1px solid rgba(212,175,55,0.3)" }}>
+          <p className="text-sm" style={{ color: "#ffffff" }}>
+            © 2024 <span style={{ color: "#D4AF37" }}>www.gold-encash.in</span>.
+            All Rights Reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
