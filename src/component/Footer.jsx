@@ -32,55 +32,57 @@ const Footer = () => {
               </div>
               Gold-Encash
             </h2>
+
             <p className="mt-3 text-sm text-gray-200 leading-relaxed">
-              Secure. Transparent. Instant Gold Selling Platform.
+              Secure • Transparent • Instant Gold Selling Platform
             </p>
 
-            {/* Support */}
-            <div>
+            <div className="mt-6">
               <h3
                 className="text-lg font-semibold mb-3"
                 style={{ color: "#D4AF37" }}>
                 Support
               </h3>
-              <div className="flex flex-col">
-                <a href="tel:+9111711101100" className="text-sm">
-                  Phone: +91-11 711101100
+
+              <div className="flex flex-col text-sm">
+                <a href="tel:+919922117866" className="hover:text-[#D4AF37]">
+                  Mobile: +91-9922117866
                 </a>
-                <a href="tel:+918766318173" className="text-sm">
-                  Mobile: +91-8766318173
-                </a>
-                <a href="tel:+9111711101101" className="text-sm">
-                  Fax: +91-11 711101101
+
+                <a
+                  href="mailto:info@goldencash.in"
+                  className="hover:text-[#D4AF37]">
+                  Email: info@goldencash.in
                 </a>
               </div>
-              <p className="text-sm">Mon – Sat: 10 AM – 7 PM</p>
+
+              <p className="text-sm mt-1 text-gray-300">
+                Mon – Sat: 10 AM – 7 PM
+              </p>
             </div>
           </div>
 
-          {/* Contact */}
-          <div className="max-w-50">
+          {/* Contact Information */}
+          <div>
             <h3
               className="text-lg font-semibold mb-3"
               style={{ color: "#D4AF37" }}>
               Contact Information
             </h3>
-            <p className="text-sm">
-              Office: 644, DLF Tower, 15 Shivaji Marg, Najafgarh Road, Moti
-              Nagar, New Delhi - 110015
+
+            <p className="text-sm leading-relaxed">
+              Registered Office: Rohini, Sector-2, North West Delhi, 110085,
+              India
             </p>
-            <p className="text-sm">
-              Email:{" "}
-              <a
-                href="mailto:sanjay.y@kissandhan.com"
-                style={{ color: "#ffffff" }}
-                className="hover:opacity-70 transition">
-                sanjay.y@kissandhan.com
-              </a>
+
+            <p className="text-sm mt-2">
+              Company: Carshala Services Private Limited
             </p>
+
+            <p className="text-sm mt-2">Website: www.gold-encash.in</p>
           </div>
 
-          {/* Quick Links  */}
+          {/* Quick Links */}
           <div>
             <h3
               className="text-lg font-semibold mb-3"
@@ -88,15 +90,28 @@ const Footer = () => {
               Quick Links
             </h3>
 
-            <div className="flex flex-col gap-2">
-              {["/", "/aboutus", "/contactus"].map((path, i) => (
-                <Link
-                  key={i}
-                  to={path}
-                  className="text-white text-sm hover:text-[#D4AF37] transition">
-                  {["Home", "About Us", "Contact"][i]}
-                </Link>
-              ))}
+            <div className="flex flex-col gap-2 text-sm">
+              <Link to="/" className="hover:text-[#D4AF37]">
+                Home
+              </Link>
+              <Link to="/aboutus" className="hover:text-[#D4AF37]">
+                About Us
+              </Link>
+              <Link to="/contactus" className="hover:text-[#D4AF37]">
+                Contact
+              </Link>
+              <Link to="/termsconditions" className="hover:text-[#D4AF37]">
+                Terms & Conditions
+              </Link>
+              <Link to="/disclaimer" className="hover:text-[#D4AF37]">
+                Disclaimer
+              </Link>
+              <Link to="/privacypolicy" className="hover:text-[#D4AF37]">
+                Privacy Policy
+              </Link>
+              <Link to="/refundcancellationpolicy" className="hover:text-[#D4AF37]">
+                Refund Cancellation Policy
+              </Link>
             </div>
           </div>
         </div>
@@ -108,7 +123,6 @@ const Footer = () => {
               key={i}
               href="#"
               className="text-white transition text-xl hover:scale-110"
-              style={{ color: "#ffffff" }}
               onMouseOver={(e) => (e.currentTarget.style.color = "#D4AF37")}
               onMouseOut={(e) => (e.currentTarget.style.color = "#ffffff")}>
               <Icon />
@@ -116,13 +130,13 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Bottom */}
+        {/* Bottom Section */}
         <div
           className="pt-5 text-center"
           style={{ borderTop: "1px solid rgba(212,175,55,0.3)" }}>
-          <p className="text-sm" style={{ color: "#ffffff" }}>
-            © 2024 <span style={{ color: "#D4AF37" }}>www.gold-encash.in</span>.
-            All Rights Reserved.
+          <p className="text-sm">
+            © 2024 <span style={{ color: "#D4AF37" }}>Gold-Encash</span>. All
+            Rights Reserved.
           </p>
         </div>
       </div>
