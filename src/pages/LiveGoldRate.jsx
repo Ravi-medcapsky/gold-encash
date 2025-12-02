@@ -26,9 +26,6 @@ const format = (n) =>
 export default function GoldCalculatorTable() {
   const [rows, setRows] = useState([
     { id: 1, item: "Bangle", qty: 2, carat: 22, gross: 20.0 },
-    { id: 2, item: "Ring", qty: 4, carat: 21, gross: 18.0 },
-    { id: 3, item: "Chain", qty: 1, carat: 20, gross: 25.0 },
-    { id: 4, item: "Necklace", qty: 1, carat: 19, gross: 30.0 },
   ]);
 
   const ADD_ROW_TEMPLATE = {
@@ -57,17 +54,18 @@ export default function GoldCalculatorTable() {
   const grandTotal = rows.reduce((sum, r) => sum + valueOf(r), 0);
 
   return (
-    <section className="p-6 bg-white rounded-xl shadow-sm">
+    <section className="p-4 sm:p-6 bg-white rounded-xl shadow-sm">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-[#1e3a5f] text-xl font-bold">
+        <h3 className="text-[#1e3a5f] text-lg sm:text-xl font-bold">
           Gold Value Calculator
         </h3>
-        <div className="text-sm text-[#1e3a5f]">
-          Today's base rates applied (fixed list)
+        <div className="text-xs sm:text-sm text-[#1e3a5f]">
+          Today's base rates applied
         </div>
       </div>
 
-      <div className="overflow-x-auto">
+      {/* ---------------- DESKTOP TABLE ---------------- */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="min-w-full table-auto border-collapse">
           <thead>
             <tr className="text-left">
@@ -76,7 +74,6 @@ export default function GoldCalculatorTable() {
                 "Qty",
                 "Carat",
                 "Gross Weight (gm)",
-                "Net Weight (gm)",
                 "Rate (₹/gm)",
                 "Value (₹)",
                 "Action",
@@ -100,7 +97,7 @@ export default function GoldCalculatorTable() {
 
               return (
                 <tr key={row.id} className="align-top">
-                  {/* ITEM DROPDOWN + CUSTOM */}
+                  {/* ITEM */}
                   <td className="px-3 py-3 border-b">
                     <select
                       value={row.item}
@@ -110,7 +107,7 @@ export default function GoldCalculatorTable() {
                           customName: "",
                         })
                       }
-                      className="w-40 md:w-56 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm bg-white focus:ring-2 focus:ring-[#D4AF37] outline-none">
+                      className="w-40 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm">
                       <option value="">Select Item</option>
                       {ITEM_OPTIONS.map((opt) => (
                         <option key={opt} value={opt}>
@@ -126,7 +123,7 @@ export default function GoldCalculatorTable() {
                           updateRow(row.id, { customName: e.target.value })
                         }
                         placeholder="Enter custom name"
-                        className="mt-2 w-40 md:w-56 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm focus:ring-2 focus:ring-[#D4AF37] outline-none"
+                        className="mt-2 w-40 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm"
                       />
                     )}
                   </td>
@@ -140,7 +137,7 @@ export default function GoldCalculatorTable() {
                       onChange={(e) =>
                         updateRow(row.id, { qty: parseFloat(e.target.value) })
                       }
-                      className="w-20 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm focus:ring-[#D4AF37] focus:ring-2 outline-none"
+                      className="w-20 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm"
                     />
                   </td>
 
@@ -151,7 +148,7 @@ export default function GoldCalculatorTable() {
                       onChange={(e) =>
                         updateRow(row.id, { carat: parseInt(e.target.value) })
                       }
-                      className="rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm bg-white focus:ring-2 focus:ring-[#D4AF37] outline-none">
+                      className="rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm">
                       {[24, 22, 21, 20, 19, 18].map((c) => (
                         <option key={c} value={c}>
                           {c}K
@@ -170,43 +167,30 @@ export default function GoldCalculatorTable() {
                       onChange={(e) =>
                         updateRow(row.id, { gross: e.target.value })
                       }
-                      placeholder="0.00"
-                      className="w-28 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm focus:ring-[#D4AF37] focus:ring-2 outline-none"
+                      className="w-28 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm"
                     />
                   </td>
 
-                  {/* NET WEIGHT */}
-                  <td className="px-3 py-3 border-b">
-                    <div className="text-sm text-[#1e3a5f] font-medium">
-                      {format(netWeight)}
-                    </div>
-                    <div className="text-xs text-[#1e3a5f] opacity-70">
-                      ({format(gross)} × 97%)
-                    </div>
-                  </td>
+                  {/* NET
+                  <td className="px-3 py-3 border-b text-sm">
+                    {format(netWeight)}
+                  </td> */}
 
                   {/* RATE */}
-                  <td className="px-3 py-3 border-b">
-                    <div className="text-sm font-semibold text-[#D4AF37]">
-                      ₹ {format(rate)}
-                    </div>
+                  <td className="px-3 py-3 border-b font-semibold text-[#D4AF37]">
+                    ₹ {format(rate)}
                   </td>
 
                   {/* VALUE */}
-                  <td className="px-3 py-3 border-b">
-                    <div className="text-sm font-bold text-[#1e3a5f]">
-                      ₹ {format(value)}
-                    </div>
-                    <div className="text-xs text-[#1e3a5f] opacity-60">
-                      x{qty}
-                    </div>
+                  <td className="px-3 py-3 border-b font-bold text-[#1e3a5f]">
+                    ₹ {format(value)}
                   </td>
 
                   {/* REMOVE */}
                   <td className="px-3 py-3 border-b">
                     <button
                       onClick={() => removeRow(row.id)}
-                      className="text-sm px-3 py-1 rounded-md border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 transition">
+                      className="text-xs px-3 py-1 rounded-md border border-[#D4AF37] text-[#D4AF37]">
                       Remove
                     </button>
                   </td>
@@ -217,28 +201,140 @@ export default function GoldCalculatorTable() {
         </table>
       </div>
 
-      {/* Controls + Total */}
-      <div className="mt-4 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={addRow}
-            className="rounded-md bg-[#D4AF37] text-[#1e3a5f] px-4 py-2 font-semibold hover:opacity-90 transition">
-            + Add Item
-          </button>
+      {/* --------------- MOBILE CARD VIEW (EASY TOUCH) ---------------- */}
+      <div className="md:hidden space-y-4">
+        {rows.map((row) => {
+          const gross = parseFloat(row.gross) || 0;
+          const netWeight = netWeightOf(gross);
+          const rate = rateOf(row.carat);
+          const qty = parseFloat(row.qty) || 1;
+          const value = qty * netWeight * rate;
 
-          <div className="text-sm text-[#1e3a5f]">
-            <span className="font-medium">Note:</span> 3% deduction applied on
-            Gross Weight
-          </div>
-        </div>
+          return (
+            <div
+              key={row.id}
+              className="border rounded-lg p-4 bg-white shadow-sm space-y-3">
+              {/* TOP — ITEM */}
+              <div>
+                <label className="text-xs text-gray-600">Item</label>
+                <select
+                  value={row.item}
+                  onChange={(e) =>
+                    updateRow(row.id, {
+                      item: e.target.value,
+                      customName: "",
+                    })
+                  }
+                  className="w-full mt-1 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm">
+                  <option value="">Select Item</option>
+                  {ITEM_OPTIONS.map((opt) => (
+                    <option key={opt} value={opt}>
+                      {opt}
+                    </option>
+                  ))}
+                </select>
+
+                {row.item === "Custom" && (
+                  <input
+                    value={row.customName}
+                    onChange={(e) =>
+                      updateRow(row.id, { customName: e.target.value })
+                    }
+                    placeholder="Enter custom name"
+                    className="mt-2 w-full rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm"
+                  />
+                )}
+              </div>
+
+              {/* 2 COL GRID */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="text-xs text-gray-600">Qty</label>
+                  <input
+                    type="number"
+                    min="1"
+                    value={row.qty}
+                    onChange={(e) =>
+                      updateRow(row.id, { qty: parseFloat(e.target.value) })
+                    }
+                    className="w-full mt-1 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-xs text-gray-600">Carat</label>
+                  <select
+                    value={row.carat}
+                    onChange={(e) =>
+                      updateRow(row.id, { carat: parseInt(e.target.value) })
+                    }
+                    className="w-full mt-1 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm">
+                    {[24, 22, 21, 20, 19, 18].map((c) => (
+                      <option key={c} value={c}>
+                        {c}K
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-xs text-gray-600">Gross (gm)</label>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value={row.gross}
+                    onChange={(e) =>
+                      updateRow(row.id, { gross: e.target.value })
+                    }
+                    className="w-full mt-1 rounded-md border border-[#D4AF37]/30 px-2 py-1 text-sm"
+                  />
+                </div>
+
+                {/* <div>
+                  <label className="text-xs text-gray-600">Net (gm)</label>
+                  <div className="mt-2 text-sm font-semibold">
+                    {format(netWeight)}
+                  </div>
+                </div> */}
+
+                <div>
+                  <label className="text-xs text-gray-600">Rate</label>
+                  <div className="mt-2 text-sm font-semibold text-[#D4AF37]">
+                    ₹ {format(rate)}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-xs text-gray-600">Value</label>
+                  <div className="mt-2 text-sm font-bold text-[#1e3a5f]">
+                    ₹ {format(value)}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => removeRow(row.id)}
+                className="w-full text-sm py-2 border border-[#D4AF37] text-[#D4AF37] rounded-md mt-2">
+                Remove
+              </button>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* CONTROLS */}
+      <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <button
+          onClick={addRow}
+          className="rounded-md bg-[#D4AF37] text-[#1e3a5f] px-5 py-2 font-semibold">
+          + Add Item
+        </button>
 
         <div className="text-right">
           <div className="text-sm text-[#1e3a5f]">Net Amount*</div>
           <div className="text-2xl font-extrabold text-[#D4AF37]">
             ₹ {format(grandTotal)}
-          </div>
-          <div className="text-xs text-[#1e3a5f] opacity-80">
-            *Excludes GST / dust charges (hidden for valuation)
           </div>
         </div>
       </div>

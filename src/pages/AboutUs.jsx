@@ -33,7 +33,7 @@ export default function AboutPage() {
         <div className="col-span-1 sm:col-span-2 grid grid-cols-subgrid border-t border-[#D4AF37] py-5">
           <p className="text-[#D4AF37] text-sm font-semibold">Registered Office</p>
           <p className="text-white text-sm">
-            123 Commerce Avenue, Business Park, New Delhi, 110001, India
+            D-44, KRISHAN VIHAR, DELHI-110086 India
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="col-span-1 sm:col-span-2 grid grid-cols-subgrid border-t border-[#D4AF37] py-5">
           <p className="text-[#D4AF37] text-sm font-semibold">Directors</p>
           <p className="text-white text-sm">
-            Vivek Kumar Yadav, [Other Director Name]
+            Vivek Kumar Yadav
           </p>
         </div>
 

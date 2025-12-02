@@ -114,7 +114,7 @@ function Header() {
       </header>
 
       {/* Navigation Banner Buttons */}
-      <nav className="flex flex-wrap gap-3 justify-center py-3 px-4 border-b border-[#D4AF37]/40">
+      {/* <nav className="flex flex-wrap gap-3 justify-center py-3 px-4 border-b border-[#D4AF37]/40">
         {[
           { label: "Get Instant Cash if Required", path: "/instant-cash" },
           { label: "100% Fair & Precise Valuation", path: "/valuation" },
@@ -129,7 +129,7 @@ function Header() {
             {item.label}
           </button>
         ))}
-      </nav>
+      </nav> */}
     </div>
   );
 }

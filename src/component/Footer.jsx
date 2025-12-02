@@ -45,8 +45,8 @@ const Footer = () => {
               </h3>
 
               <div className="flex flex-col text-sm">
-                <a href="tel:+919922117866" className="hover:text-[#D4AF37]">
-                  Mobile: +91-9922117866
+                <a href="tel:+919217247347" className="hover:text-[#D4AF37]">
+                  Mobile: +91-9217247347
                 </a>
 
                 <a
@@ -56,9 +56,9 @@ const Footer = () => {
                 </a>
               </div>
 
-              <p className="text-sm mt-1 text-gray-300">
+              {/* <p className="text-sm mt-1 text-gray-300">
                 Mon – Sat: 10 AM – 7 PM
-              </p>
+              </p> */}
             </div>
           </div>
 
@@ -71,15 +71,14 @@ const Footer = () => {
             </h3>
 
             <p className="text-sm leading-relaxed">
-              Registered Office: Rohini, Sector-2, North West Delhi, 110085,
-              India
+              Registered Office: D-44, KRISHAN VIHAR, DELHI-110086
             </p>
 
             <p className="text-sm mt-2">
               Company: Carshala Services Private Limited
             </p>
 
-            <p className="text-sm mt-2">Website: www.gold-encash.in</p>
+            <p className="text-sm mt-2">Website: www.goldencash.in</p>
           </div>
 
           {/* Quick Links */}
@@ -109,7 +108,9 @@ const Footer = () => {
               <Link to="/privacypolicy" className="hover:text-[#D4AF37]">
                 Privacy Policy
               </Link>
-              <Link to="/refundcancellationpolicy" className="hover:text-[#D4AF37]">
+              <Link
+                to="/refundcancellationpolicy"
+                className="hover:text-[#D4AF37]">
                 Refund Cancellation Policy
               </Link>
             </div>
